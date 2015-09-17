@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917040030) do
+ActiveRecord::Schema.define(version: 20150917052400) do
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",          null: false
-    t.integer  "initiator_id"
-    t.integer  "challenger_id"
+    t.string   "name",                              null: false
+    t.string   "initiator_id"
+    t.string   "challenger_id"
     t.text     "record"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "state",         default: "WAITING", null: false
   end
 
   add_index "games", ["name"], name: "index_games_on_name"

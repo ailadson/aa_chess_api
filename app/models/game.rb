@@ -12,4 +12,13 @@
 #
 
 class Game < ActiveRecord::Base
+  STATES = %w(WAITING, PLAYING, FINISHED)
+
+  validates :initiator_id, :challenger_id, :name, presence: true
+
+  def self.eligible_games
+    all.
+    where("state != 'FINISHED'").
+    select(:id, :name, :initiator_id, :challenger_id, :state)
+  end
 end
