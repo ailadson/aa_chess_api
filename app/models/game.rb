@@ -14,7 +14,7 @@
 class Game < ActiveRecord::Base
   STATES = %w(WAITING, PLAYING, FINISHED)
 
-  validates :initiator_id, :challenger_id, :name, presence: true
+  validates :initiator_id, :name, presence: true
 
   def self.eligible_games
     all.
